@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Books>
+  <book>
+    <id>1</id>
+    <title>Благолосение небожителей</title>
+    <author>Мосян Тунсю</author>
+    <deposit>5000</deposit>
+    <rental>100</rental>
+    <genre>Сянься</genre>
+  </book>
+  <book>
+    <id>2</id>
+    <title>Магистр дьявольского культа</title>
+    <author>Мосян Тунсю</author>
+    <deposit>4000</deposit>
+    <rental>90</rental>
+    <genre>Сянься</genre>
+  </book>
+  <book>
+    <id>3</id>
+    <title>Гипотеза любви</title>
+    <author>Али Хейзелвуд</author>
+    <deposit>4000</deposit>
+    <rental>80</rental>
+    <genre>Роман</genre>
+  </book>
+  <book>
+    <id>4</id>
+    <title>Двериндариум</title>
+    <author>Марина Суржевская</author>
+    <deposit>3000</deposit>
+    <rental>70</rental>
+    <genre>Фэнтези</genre>
+  </book>
+  <book>
+    <id>5</id>
+    <title>Мара и Морок</title>
+    <author>Лия Арден</author>
+    <deposit>2000</deposit>
+    <rental>60</rental>
+    <genre>Фэнтези</genre>
+  </book>
+  <book>
+    <id>6</id>
+    <title>Название 6</title>
+    <author>Автор 6</author>
+    <deposit>1000</deposit>
+    <rental>30</rental>
+    <genre>Жанр</genre>
+  </book>
+  <book>
+    <id>7</id>
+    <title>Название 7</title>
+    <author>Автор 7</author>
+    <deposit>4000</deposit>
+    <rental>40</rental>
+    <genre>Жанр</genre>
+  </book>
+  <book>
+    <id>8</id>
+    <title>Название 8</title>
+    <author>Автор 8</author>
+    <deposit>3500</deposit>
+    <rental>50</rental>
+    <genre>Жанр</genre>
+  </book>
+</Books>

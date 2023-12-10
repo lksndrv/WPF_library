@@ -1,0 +1,477 @@
+﻿<Page x:Class="Lib.Page4"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Lib"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1200"
+      Title="Page4" WindowWidth="1200" WindowHeight="720"
+      ShowsNavigationUI="False">
+
+
+    <Page.Resources>
+        <Style x:Key="CustomDataGridColumnHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="#FFBBE35F" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Padding" Value="8"/>
+        </Style>
+
+        <Style x:Key="CustomDataGridStyle" TargetType="DataGrid">
+            <Setter Property="ColumnHeaderStyle" Value="{StaticResource CustomDataGridColumnHeaderStyle}" />
+        </Style>
+
+
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="BorderBrush" Value="#FF684B47"/>
+            <!--                           your color here -->
+            <Setter Property="Foreground" Value="#FF71951B"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" >
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" Width="15" Height="15">
+                                <Grid>
+                                    <Grid Background="{TemplateBinding Foreground}" Margin="1" Visibility="Collapsed" Name="nullBlock"/>
+                                    <Path Stretch="Uniform" Width="15" Height="10" Fill="{TemplateBinding Foreground}" Name="eliCheck" Data="F1 M 9.97498,1.22334L 4.6983,9.09834L 4.52164,9.09834L 0,5.19331L 1.27664,3.52165L 4.255,6.08833L 8.33331,1.52588e-005L 9.97498,1.22334 Z " Visibility="Collapsed"/>
+                                </Grid>
+                            </Border>
+                            <TextBlock Margin="5,0,0,0"  VerticalAlignment="Center" Foreground="#FF684B47" Text="{TemplateBinding Content}"></TextBlock>
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#E8FFB3" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#E8FFB3" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="#E8FFB3" />
+                                <Setter Property="Foreground" Value="#FF71951B" />
+                                <Setter Property="BorderBrush" Value="#FF71951B"/>
+                                <Setter TargetName="eliCheck" Property="Opacity" Value="0.5" />
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="eliCheck" Property="Visibility" Value="Visible"></Setter>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="{x:Null}">
+                                <Setter TargetName="nullBlock" Property="Visibility" Value="Visible"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Page.Resources>
+
+
+    <Grid Background="#E8FFB3">
+        <Grid ShowGridLines="False">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Margin="60,60,60,0" Background="White" CornerRadius="20" VerticalAlignment="Top" Grid.ColumnSpan="9" Grid.RowSpan="6" Height="600" Grid.Column="1">
+
+
+            </Border>
+            <TextBlock FontSize="16" Foreground="#FF684B47" HorizontalAlignment="Center" Margin="0,35,0,65" FontFamily="Century Gothic" Grid.Column="3" Grid.Row="1" ><Run Language="ru-ru" Text="Выдача книги"/></TextBlock>
+
+
+            <DataGrid Name="dg3" d:ItemsSource="{d:SampleData ItemCount=100}" Style="{StaticResource CustomDataGridStyle}" Grid.Column="1" Grid.Row="3" Grid.RowSpan="3" Grid.ColumnSpan="9" Margin="90,60,90,90" FontFamily="Century Gothic" HorizontalGridLinesBrush="#FF92B14B" RowBackground="#FFF5FFDD" VerticalGridLinesBrush="#FF92B14B" RenderTransformOrigin="0.5,0.5" BorderBrush="#FFD8E381" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Background="#FFFBFDE7" Width="900" Height="210" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+            </DataGrid>
+
+
+
+            <TextBlock FontSize="16" Foreground="#FF684B47" HorizontalAlignment="Center" Margin="0,35,0,63" FontFamily="Century Gothic" Grid.Column="5" Grid.Row="1" ><Run Language="ru-ru" Text="Возврат книги"/></TextBlock>
+
+
+
+            <TextBlock Text="Выданные книги" FontSize="30" FontWeight="Bold" Foreground="#FF684B47" HorizontalAlignment="Center" Margin="0,76,0,0" Grid.Column="4" Grid.ColumnSpan="3" FontFamily="Century Gothic" />
+
+            <TextBox Name="IBookID" TextWrapping="Wrap" GotFocus="IBookIDG" LostFocus="IBookIDL" Tag="ID книги" Text="ID книги" Grid.Column="3" Grid.Row="1" Margin="0,70,60,20" FontFamily="Century Gothic" Foreground="#FF684B47" CaretBrush="#FF684B47" SelectionBrush="#FF684B47" >
+                <TextBox.Resources>
+                    <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBox}" >
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type TextBox}">
+                                    <Border  x:Name="border1" CornerRadius="8" BorderThickness="3" BorderBrush="#FFBBE35F">
+                                        <ScrollViewer x:Name="PART_ContentHost"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="border1" Value="#E8FFB3"/>
+                                            <Setter Property="Foreground" Value="#E8FFB3" />
+                                        </Trigger>
+                                        <Trigger Property="IsFocused" Value="true">
+                                            <Setter Property="Foreground" Value="#E8FFB3" />
+                                            <Setter Property="BorderBrush" TargetName="border1" Value="#E8FFB3"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBox x:Name="IReaderID" TextWrapping="Wrap" GotFocus="IReaderIDG" LostFocus="IReaderIDL" Tag="ID чит." Text="ID чит." Grid.Column="3" Grid.Row="1" Margin="60,70,0,20" FontFamily="Century Gothic" Foreground="#FF684B47" CaretBrush="#FF684B47" SelectionBrush="#FF684B47" >
+                <TextBox.Resources>
+                    <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBox}" >
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type TextBox}">
+                                    <Border  x:Name="border1" CornerRadius="8" BorderThickness="3" BorderBrush="#FFBBE35F">
+                                        <ScrollViewer x:Name="PART_ContentHost"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="border1" Value="#E8FFB3"/>
+                                            <Setter Property="Foreground" Value="#E8FFB3" />
+                                        </Trigger>
+                                        <Trigger Property="IsFocused" Value="true">
+                                            <Setter Property="Foreground" Value="#E8FFB3" />
+                                            <Setter Property="BorderBrush" TargetName="border1" Value="#E8FFB3"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBox x:Name="Rdate" TextWrapping="Wrap" GotFocus="RdateG" LostFocus="RdateL" Tag="Ожидаемая дата возврата" Text="Ожидаемая дата возврата" Grid.Column="3" Grid.Row="2" Margin="0,46,0,34" FontFamily="Century Gothic" Foreground="#FF684B47" CaretBrush="#FF684B47" SelectionBrush="#FF684B47" Height="40" >
+                <TextBox.Resources>
+                    <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBox}" >
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type TextBox}">
+                                    <Border  x:Name="border1" CornerRadius="8" BorderThickness="3" BorderBrush="#FFBBE35F">
+                                        <ScrollViewer x:Name="PART_ContentHost"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="border1" Value="#E8FFB3"/>
+                                            <Setter Property="Foreground" Value="#E8FFB3" />
+                                        </Trigger>
+                                        <Trigger Property="IsFocused" Value="true">
+                                            <Setter Property="Foreground" Value="#E8FFB3" />
+                                            <Setter Property="BorderBrush" TargetName="border1" Value="#E8FFB3"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBox x:Name="Idate" TextWrapping="Wrap" GotFocus="IdateG" LostFocus="IdateL" Tag="Дата выдачи" Text="Дата выдачи" Grid.Column="3" Grid.Row="2" Margin="0,0,0,90" FontFamily="Century Gothic" Foreground="#FF684B47" CaretBrush="#FF684B47" SelectionBrush="#FF684B47" Height="30" >
+                <TextBox.Resources>
+                    <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBox}" >
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type TextBox}">
+                                    <Border  x:Name="border1" CornerRadius="8" BorderThickness="3" BorderBrush="#FFBBE35F">
+                                        <ScrollViewer x:Name="PART_ContentHost"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="border1" Value="#E8FFB3"/>
+                                            <Setter Property="Foreground" Value="#E8FFB3" />
+                                        </Trigger>
+                                        <Trigger Property="IsFocused" Value="true">
+                                            <Setter Property="Foreground" Value="#E8FFB3" />
+                                            <Setter Property="BorderBrush" TargetName="border1" Value="#E8FFB3"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <Button Click="New_issuance" Cursor="Hand" Content="Добавить" Grid.Column="3" Grid.Row="2" Margin="0,100,0,100" Height="40" FontFamily="Century Gothic" Grid.RowSpan="2">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#FFBBE35F"/>
+                        <Setter Property="Foreground" Value="Black"/>
+
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" CornerRadius="8">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#E8FFB3"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+
+
+
+
+
+            <TextBox x:Name="IBookID_return" TextWrapping="Wrap" GotFocus="IBookID_returnG" LostFocus="IBookID_returnL" Tag="ID книги" Text="ID книги" Grid.Column="5" Grid.Row="1" Margin="0,70,0,20" FontFamily="Century Gothic" Foreground="#FF684B47" CaretBrush="#FF684B47" SelectionBrush="#FF684B47" >
+                <TextBox.Resources>
+                    <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBox}" >
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type TextBox}">
+                                    <Border  x:Name="border1" CornerRadius="8" BorderThickness="3" BorderBrush="#FFBBE35F">
+                                        <ScrollViewer x:Name="PART_ContentHost"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="border1" Value="#E8FFB3"/>
+                                            <Setter Property="Foreground" Value="#E8FFB3" />
+                                        </Trigger>
+                                        <Trigger Property="IsFocused" Value="true">
+                                            <Setter Property="Foreground" Value="#E8FFB3" />
+                                            <Setter Property="BorderBrush" TargetName="border1" Value="#E8FFB3"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBox x:Name="Rdate2_return" TextWrapping="Wrap" GotFocus="Rdate2_returnG" LostFocus="Rdate2_returnL" Tag="Дата возврата" Text="Дата возврата" Grid.Column="5" Grid.Row="2" Margin="0,0,0,90" FontFamily="Century Gothic" Foreground="#FF684B47" CaretBrush="#FF684B47" SelectionBrush="#FF684B47" >
+                <TextBox.Resources>
+                    <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBox}" >
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type TextBox}">
+                                    <Border  x:Name="border1" CornerRadius="8" BorderThickness="3" BorderBrush="#FFBBE35F">
+                                        <ScrollViewer x:Name="PART_ContentHost"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="border1" Value="#E8FFB3"/>
+                                            <Setter Property="Foreground" Value="#E8FFB3" />
+                                        </Trigger>
+                                        <Trigger Property="IsFocused" Value="true">
+                                            <Setter Property="Foreground" Value="#E8FFB3" />
+                                            <Setter Property="BorderBrush" TargetName="border1" Value="#E8FFB3"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <CheckBox x:Name="Spisana_Check" Checked="Spisana_Check_Yes" Unchecked="Spisana_Check_No" Content="Списана" Grid.Column="5" Grid.Row="2" Margin="0,68,40,34" FontFamily="Century Gothic"/>
+            <CheckBox x:Name="Problem_Check" Checked="Problem_Check_Yes" Unchecked="Problem_Check_No" Content="Повреждена" Grid.Column="5" Grid.Row="2" Margin="0,42,20,60" FontFamily="Century Gothic"/>
+            <Button Click="New_return" Cursor="Hand" Content="Добавить" Grid.Column="5" Grid.Row="2" Margin="0,100,0,100" Height="40" FontFamily="Century Gothic" Grid.RowSpan="2">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#FFBBE35F"/>
+                        <Setter Property="Foreground" Value="Black"/>
+
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" CornerRadius="8">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#E8FFB3"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+
+
+
+            <TextBlock FontSize="16" Foreground="#FF684B47" Margin="0,38,0,60" FontFamily="Century Gothic" Grid.Column="7" Grid.Row="1" Width="120" Height="22" HorizontalAlignment="Center" TextAlignment="Center" Text="Поиск" />
+            <TextBox x:Name="Source_text_ID_ibook" TextWrapping="Wrap" GotFocus="Source_text_ID_ibookG" LostFocus="Source_text_ID_ibookL" Tag="ID книги" Text="ID книги" Grid.Column="7" Grid.Row="1" Margin="0,70,60,30" FontFamily="Century Gothic" Foreground="#FF684B47" CaretBrush="#FF684B47" SelectionBrush="#FF684B47" Height="20">
+                <TextBox.Resources>
+                    <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBox}" >
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type TextBox}">
+                                    <Border  x:Name="border1" CornerRadius="4" BorderThickness="1" BorderBrush="#FF684B47">
+                                        <ScrollViewer x:Name="PART_ContentHost"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="border1" Value="#FFC37F76"/>
+                                            <Setter Property="Foreground" Value="#FFC37F76" />
+                                        </Trigger>
+                                        <Trigger Property="IsFocused" Value="true">
+                                            <Setter Property="Foreground" Value="#FFC37F76" />
+                                            <Setter Property="BorderBrush" TargetName="border1" Value="#FFC37F76"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <Button Click="Source_ID_ibook" Cursor="Hand" Content="Найти" Grid.Column="7" Grid.Row="1" Margin="76,70,0,30" FontFamily="Century Gothic" Height="20" RenderTransformOrigin="0.459,0.31">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#FFBBE35F"/>
+                        <Setter Property="Foreground" Value="black"/>
+
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" CornerRadius="8">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#E8FFB3 "/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <TextBox x:Name="Source_text_ID_reader" TextWrapping="Wrap" GotFocus="Source_text_ID_readerG" LostFocus="Source_text_ID_readerL" Tag="ID чит." Text="ID чит." Grid.Column="7" Grid.Row="1" Margin="0,110,60,110" FontFamily="Century Gothic" Foreground="#FF684B47" CaretBrush="#FF684B47" SelectionBrush="#FF684B47" Height="20" Grid.RowSpan="2">
+                <TextBox.Resources>
+                    <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBox}" >
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type TextBox}">
+                                    <Border  x:Name="border1" CornerRadius="4" BorderThickness="1" BorderBrush="#FF684B47">
+                                        <ScrollViewer x:Name="PART_ContentHost"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="border1" Value="#FFC37F76"/>
+                                            <Setter Property="Foreground" Value="#FFC37F76" />
+                                        </Trigger>
+                                        <Trigger Property="IsFocused" Value="true">
+                                            <Setter Property="Foreground" Value="#FFC37F76" />
+                                            <Setter Property="BorderBrush" TargetName="border1" Value="#FFC37F76"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <Button Click="Source_ID_readers" Cursor="Hand" Content="Найти" Grid.Column="7" Grid.Row="1" Margin="76,110,0,110" FontFamily="Century Gothic" Height="20" Grid.RowSpan="2">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#FFBBE35F"/>
+                        <Setter Property="Foreground" Value="black"/>
+
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" CornerRadius="8">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#E8FFB3 "/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button Click="Source_All_ibooks" Cursor="Hand" Content="Посмотреть все" Grid.Column="7" Grid.Row="2" Margin="0,31,0,69" FontFamily="Century Gothic" Height="20">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#FFBBE35F"/>
+                        <Setter Property="Foreground" Value="black"/>
+
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" CornerRadius="8">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#E8FFB3 "/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+
+
+
+            <TextBlock FontSize="16" Foreground="#FF684B47" Margin="0,73,0,25" FontFamily="Century Gothic" Grid.Column="7" Grid.Row="2" Width="120" Height="22" HorizontalAlignment="Center" TextAlignment="Center" Text="Общий доход" />
+            <Border BorderThickness="3" Grid.Column="7" Margin="0,100,0,100" Grid.Row="2"  CornerRadius="8"  BorderBrush="#FFBBE35F" Grid.RowSpan="2" Height="40" />
+            <TextBlock x:Name="Allsumma" VerticalAlignment="Top" Foreground="Black" Margin="0,111,0,0" FontFamily="Century Gothic" Grid.Column="7" Grid.Row="2" Width="100" HorizontalAlignment="Left" TextAlignment="Center" Text="Сумма" Grid.RowSpan="2" />
+            <TextBlock VerticalAlignment="Top" Foreground="Black" Margin="100,111,0,0" FontFamily="Century Gothic" Grid.Column="7" Grid.Row="2" Width="20" HorizontalAlignment="Left" TextAlignment="Center" Text="р." RenderTransformOrigin="0.3,1.672" Grid.RowSpan="2" />
+
+
+
+
+
+        </Grid>
+
+
+
+
+    </Grid>
+</Page>

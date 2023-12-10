@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Readers>
+  <reader>
+    <id>1</id>
+    <surname>Андреев</surname>
+    <name>Андрей</name>
+    <patronymic>Андреевич</patronymic>
+    <address>1 Андреевская улица, дом 1, квартира 1</address>
+    <telephone>81111111111</telephone>
+    <benefits>Да</benefits>
+  </reader>
+  <reader>
+    <id>2</id>
+    <surname>Борисов</surname>
+    <name>Борис</name>
+    <patronymic>Борисович</patronymic>
+    <address>2 Борисовская улица, дом 2, квартира 2</address>
+    <telephone>82222222222</telephone>
+    <benefits>Нет</benefits>
+  </reader>
+  <reader>
+    <id>3</id>
+    <surname>Викториева</surname>
+    <name>Виктория</name>
+    <patronymic>Викторовна</patronymic>
+    <address>3 Викторианская улица, дом 3, квартира 3</address>
+    <telephone>83333333333</telephone>
+    <benefits>Да</benefits>
+  </reader>
+  <reader>
+    <id>4</id>
+    <surname>Глебов</surname>
+    <name>Глеб</name>
+    <patronymic>Глебович</patronymic>
+    <address>4 Грибочкина улица, дом 4, квартира 4</address>
+    <telephone>84444444444</telephone>
+    <benefits>Нет</benefits>
+  </reader>
+  <reader>
+    <id>5</id>
+    <surname>Дарьева</surname>
+    <name>Дарья</name>
+    <patronymic>Демидовна</patronymic>
+    <address>5 Дарьина улица, дом 5, квартира 5</address>
+    <telephone>85555555555</telephone>
+    <benefits>Да</benefits>
+  </reader>
+  <reader>
+    <id>6</id>
+    <surname>Фамилия 6</surname>
+    <name>Имя 6</name>
+    <patronymic>Отчество 6</patronymic>
+    <address>ул 6</address>
+    <telephone>86666666666</telephone>
+    <benefits>Нет</benefits>
+  </reader>
+  <reader>
+    <id>7</id>
+    <surname>Фамилия 7</surname>
+    <name>Имя 7</name>
+    <patronymic>Отчество 7</patronymic>
+    <address>ул 7</address>
+    <telephone>87777777777</telephone>
+    <benefits>Нет</benefits>
+  </reader>
+  <reader>
+    <id>8</id>
+    <surname>Фамилия 8</surname>
+    <name>Имя 8</name>
+    <patronymic>Отчество 8</patronymic>
+    <address>ул 8</address>
+    <telephone>88888888888</telephone>
+    <benefits>Да</benefits>
+  </reader>
+</Readers>
