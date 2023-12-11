@@ -64,4 +64,12 @@
     <rental>50</rental>
     <genre>Жанр</genre>
   </book>
+  <book>
+    <id>9</id>
+    <title>Война и мир</title>
+    <author>Лев Толстой</author>
+    <deposit>4300</deposit>
+    <rental>50</rental>
+    <genre>Роман-эпопея</genre>
+  </book>
 </Books>

@@ -28,7 +28,7 @@
     <rdate2>10.04.2022</rdate2>
     <problem>-</problem>
     <spisana>Да</spisana>
-    <sum>2000</sum>
+    <sum>4000</sum>
   </ibook>
   <ibook>
     <ibookID>4</ibookID>
@@ -69,5 +69,15 @@
     <problem>-</problem>
     <spisana>-</spisana>
     <sum></sum>
+  </ibook>
+  <ibook>
+    <ibookID>9</ibookID>
+    <ireader>9</ireader>
+    <idate>01.09.2023</idate>
+    <rdate>01.10.2023</rdate>
+    <rdate2>05.10.2023</rdate2>
+    <problem>-</problem>
+    <spisana>Да</spisana>
+    <sum>4300</sum>
   </ibook>
 </IBooks>

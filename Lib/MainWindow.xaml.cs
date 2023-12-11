@@ -58,6 +58,10 @@ namespace Lib
                         MessageBox.Show("Неверно введен логин или пароль");
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Неверно введен логин или пароль");
+                }
             }
         }
 

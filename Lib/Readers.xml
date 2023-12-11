@@ -72,4 +72,13 @@
     <telephone>88888888888</telephone>
     <benefits>Да</benefits>
   </reader>
+  <reader>
+    <id>9</id>
+    <surname>Ежевичкин</surname>
+    <name>Валерий</name>
+    <patronymic>Григорьевич</patronymic>
+    <address>улица 85, дом 16</address>
+    <telephone>89999999999</telephone>
+    <benefits>Да</benefits>
+  </reader>
 </Readers>

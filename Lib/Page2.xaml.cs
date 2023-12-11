@@ -102,7 +102,7 @@ namespace Lib
 
                         LoadTable();
                         MessageBox.Show("Данные удалены");
-                    }
+                        }
                         else
                         {
                         // Отменить действие, если пользователь нажал Нет

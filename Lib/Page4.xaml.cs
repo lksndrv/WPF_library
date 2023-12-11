@@ -129,14 +129,14 @@ namespace Lib
                                         }
                                     }
                                 }
+                                if (xe2.Element("benefits").Value == "Да")
+                                {
+                                    Summa = Summa / 2; //Скидка за льготу
+                                }
                                 if (xe3.Element("spisana").Value == "Да")
                                 {
                                     int dep = Int32.Parse(xe1.Element("deposit").Value);
                                     Summa = dep;
-                                }
-                                if (xe2.Element("benefits").Value == "Да")
-                                {
-                                    Summa = Summa / 2; //Скидка за льготу
                                 }
 
 
